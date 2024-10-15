@@ -9,9 +9,10 @@ export default function ExpenseList({
   onDelete,
   onUpdate,
   expenseCategory,
+  data,
 }) {
-  const [filterIsOpen, setFilterIsOpen] = useState(false);
-  const [sortIsOpen, setSortIsOpen] = useState(false);
+  const { expenseSort, setExpenseSort, expenseFilter, setExpenseFilter } = data;
+
   const [sortOrder, setSortOrder] = useState(null);
   const [filter, setFilter] = useState([]);
 
@@ -31,14 +32,14 @@ export default function ExpenseList({
 
         <div className="flex gap-1">
           <SortList
-            sortIsOpen={sortIsOpen}
-            setSortIsOpen={setSortIsOpen}
+            sortIsOpen={expenseSort}
+            setSortIsOpen={setExpenseSort}
             setSortOrder={setSortOrder}
           />
 
           <FilterList
-            filterIsOpen={filterIsOpen}
-            setFilterIsOpen={setFilterIsOpen}
+            filterIsOpen={expenseFilter}
+            setFilterIsOpen={setExpenseFilter}
             filter={filter}
             setFilter={setFilter}
             category={expenseCategory}

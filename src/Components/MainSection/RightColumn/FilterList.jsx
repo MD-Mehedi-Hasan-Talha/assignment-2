@@ -23,7 +23,7 @@ export default function FilterList({
           id="filter-button"
           aria-expanded="true"
           aria-haspopup="true"
-          onClick={() => setFilterIsOpen(!filterIsOpen)}
+          onClick={() => setFilterIsOpen(true)}
         >
           <Filter />
         </button>
@@ -37,6 +37,7 @@ export default function FilterList({
           aria-labelledby="filter-button"
           tabIndex="-1"
           id="filter-dropdown"
+          onClick={(e) => e.stopPropagation()}
         >
           <div className="py-1" role="none">
             {category.map((cat, index) => (

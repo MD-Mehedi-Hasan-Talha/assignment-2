@@ -15,6 +15,11 @@ const expenseCategory = [
 ];
 
 export default function MainSection() {
+  const [incomeSort, setIncomeSort] = useState(false);
+  const [incomeFilter, setIncomeFilter] = useState(false);
+  const [expenseSort, setExpenseSort] = useState(false);
+  const [expenseFilter, setExpenseFilter] = useState(false);
+
   const [calculation, setCalculation] = useState([]);
   const [formValue, setFormValue] = useState({
     isExpense: true,
@@ -46,8 +51,20 @@ export default function MainSection() {
     setCalculation(updatedCalculation);
   };
 
+  const handleCloseSortAndFilter = () => {
+    if (incomeSort || incomeFilter || expenseSort || expenseFilter) {
+      setIncomeSort(false);
+      setIncomeFilter(false);
+      setExpenseFilter(false);
+      setExpenseSort(false);
+    }
+  };
+
   return (
-    <main className="relative mx-auto mt-10 w-full max-w-7xl">
+    <main
+      className="relative mx-auto mt-10 w-full max-w-7xl"
+      onClick={handleCloseSortAndFilter}
+    >
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <Form
           handleAddCalculation={handleAddCalculation}
@@ -63,6 +80,16 @@ export default function MainSection() {
           onUpdate={setFormValue}
           incomeCategory={incomeCategory}
           expenseCategory={expenseCategory}
+          data={{
+            incomeSort,
+            incomeFilter,
+            expenseSort,
+            expenseFilter,
+            setIncomeSort,
+            setIncomeFilter,
+            setExpenseSort,
+            setExpenseFilter,
+          }}
         />
       </section>
     </main>

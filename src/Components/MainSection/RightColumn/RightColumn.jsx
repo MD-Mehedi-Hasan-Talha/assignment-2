@@ -7,6 +7,7 @@ export default function RightColumn({
   onUpdate,
   incomeCategory,
   expenseCategory,
+  data,
 }) {
   return (
     <div className="lg:col-span-2">
@@ -55,6 +56,7 @@ export default function RightColumn({
         onUpdate={onUpdate}
         incomeCategory={incomeCategory}
         expenseCategory={expenseCategory}
+        data={data}
       />
     </div>
   );

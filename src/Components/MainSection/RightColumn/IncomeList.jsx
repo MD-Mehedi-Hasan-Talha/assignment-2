@@ -9,9 +9,10 @@ export default function IncomeList({
   onDelete,
   onUpdate,
   incomeCategory,
+  data,
 }) {
-  const [filterIsOpen, setFilterIsOpen] = useState(false);
-  const [sortIsOpen, setSortIsOpen] = useState(false);
+  const { incomeSort, setIncomeSort, incomeFilter, setIncomeFilter } = data;
+
   const [sortOrder, setSortOrder] = useState(null);
   const [filter, setFilter] = useState([]);
 
@@ -30,14 +31,14 @@ export default function IncomeList({
         </div>
         <div className="flex gap-1">
           <SortList
-            sortIsOpen={sortIsOpen}
-            setSortIsOpen={setSortIsOpen}
+            sortIsOpen={incomeSort}
+            setSortIsOpen={setIncomeSort}
             setSortOrder={setSortOrder}
           />
 
           <FilterList
-            filterIsOpen={filterIsOpen}
-            setFilterIsOpen={setFilterIsOpen}
+            filterIsOpen={incomeFilter}
+            setFilterIsOpen={setIncomeFilter}
             filter={filter}
             setFilter={setFilter}
             category={incomeCategory}

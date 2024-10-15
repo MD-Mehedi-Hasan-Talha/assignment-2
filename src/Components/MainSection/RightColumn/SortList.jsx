@@ -10,7 +10,7 @@ export default function SortList({ sortIsOpen, setSortIsOpen, setSortOrder }) {
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
-          onClick={() => setSortIsOpen(!sortIsOpen)}
+          onClick={() => setSortIsOpen(true)}
         >
           <Sort />
         </button>

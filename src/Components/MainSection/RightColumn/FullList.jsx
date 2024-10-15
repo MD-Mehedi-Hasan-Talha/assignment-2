@@ -7,6 +7,7 @@ export default function FullList({
   onUpdate,
   incomeCategory,
   expenseCategory,
+  data,
 }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
@@ -15,6 +16,7 @@ export default function FullList({
         onDelete={onDelete}
         onUpdate={onUpdate}
         incomeCategory={incomeCategory}
+        data={data}
       />
 
       <ExpenseList
@@ -22,6 +24,7 @@ export default function FullList({
         onDelete={onDelete}
         onUpdate={onUpdate}
         expenseCategory={expenseCategory}
+        data={data}
       />
     </div>
   );
